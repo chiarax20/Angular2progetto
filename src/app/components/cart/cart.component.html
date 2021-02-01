@@ -1,0 +1,15 @@
+<div class="Carrello">
+  <div class="title">
+  <h1>Carrello</h1>
+  <div class="prodotti" >
+    <div class="prodotto" *ngFor="let item of items">
+      <h1>{{ item.name }}</h1>
+      <div class="image">
+        <img  src={{item.url}}>
+        </div>
+        <h2>Prezzo: {{ item.price}} €</h2>
+    </div>
+    <button class="button" (click)="removeAllProdotti()">Cancella tutti</button>
+  </div>
+  <h1>Totale: {{tot}} €</h1>
+</div>

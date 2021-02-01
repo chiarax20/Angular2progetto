@@ -1,0 +1,52 @@
+<div *ngIf="currentProdotto">
+  <div *ngIf="!modifica" class="prodotto">
+    <h1>{{ prodotto.name }}</h1>
+    <div class="image">
+      <img  src={{prodotto.url}}>
+      </div>
+    <h4>Prezzo: {{ prodotto.price}} €</h4>
+    <h3>Descrizione:</h3>
+    <p>{{ prodotto.description }}</p>
+    <p>Stato:{{ currentProdotto.available ? "Disponibile" : "Non Disponibile" }}</p>
+    <div class="buttonGroup">
+    <button class="button" (click)="change()">Modifica</button>
+    <button class="button" (click)="addToCart(currentProdotto)">Aggiungi al carrello</button>
+  </div>
+</div>
+  <div *ngIf="modifica">
+  <form class="FormGroup" >
+    <div class="image">
+      <img  src={{prodotto.url}}>
+      </div>
+    <div class="form">
+      <label for="name">Nome</label>
+      <input type="text" class="input" id="name" [(ngModel)]="currentProdotto.name" name="name"/>
+    </div>
+    <div class="form">
+      <label for="description">Descrizione</label>
+      <input type="text" class="input" id="description" [(ngModel)]="currentProdotto.description" name="description"/>
+    </div>
+    <div class="form">
+      <label for="price">Prezzo</label>
+      <input type="text" class="input" id="price" [(ngModel)]="currentProdotto.price" name="price"/>
+    </div>
+    <div class="form">
+      <label><strong>Status:</strong></label>
+      {{ currentProdotto.available ? "Disponibile" : "Non Disponibile" }}
+    </div>
+  </form>
+
+  <button class="button" *ngIf="currentProdotto.available" (click)="updateAvailable(false)">NonDisponibile</button>
+  <button *ngIf="!currentProdotto.available" class="button" (click)="updateAvailable(true)">Disponibile</button>
+  <button class="button" (click)="deleteProdotto()">Cancella</button>
+  <button type="submit" class="button" (click)="updateProdotto()">Modifica</button>
+  <p>{{ message }}</p>
+  </div>
+</div>
+
+<div *ngIf="!currentProdotto">
+  <br />
+  <p>Impossibile accedre a questo prodotto...</p>
+</div>
+<button class="button" (click)="goBack()">Torna lista prodotti</button>
+

@@ -1,0 +1,24 @@
+<app-ricerca (ricercaEvent)="receiveRicerca($event)"></app-ricerca>
+<div class="PaginaLista">
+  <div class="lista"  *ngIf="Listaprodotti">
+    <h1>Lista Prodotti:</h1>
+    <div class="lista-prodotti">
+      <div class="prodotto" *ngFor="let prodotto of prodotti; let i = index">
+      <h1>{{ prodotto.name }}</h1>
+      <div class="image">
+      <img  src={{prodotto.url}}>
+      </div>
+      <h4>{{ prodotto.price}} €</h4>
+      <button class="button" [class.active]="i == currentIndex" (click)="setActiveProdotto(prodotto, i)">Dettaglio</button>
+      <button class="button" [class.active]="i == currentIndex" (click)="setActiveProdotto2(prodotto, i)">Aggiungi al carrello</button>
+    </div>
+  </div>
+    <button class="button" (click)="removeAllProdotti()">Cancella tutti</button>
+  </div>
+  <div class="dettaglio">
+    <div *ngIf="!Listaprodotti">
+      <app-prodotto-dettaglio (refreshList)="refreshList()"
+        [prodotto]="currentProdotto"></app-prodotto-dettaglio>
+    </div>
+  </div>
+</div>

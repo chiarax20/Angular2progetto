@@ -1,0 +1,38 @@
+.ricerca{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input{
+  height: 30px;
+  margin: 1%;
+  width: 200px;
+  color: rgb(129, 165, 97);
+  font-weight: bold;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  color: #FFFFFF;
+  text-decoration: none;
+  line-height: 1.2;
+  font-weight: normal;
+  font-family: 'Kalam', cursive;
+  font-size: 18px;
+  background-color: rgb(129, 165, 97);
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: 1px solid rgb(80, 98, 64);
+  cursor: pointer;
+ }
+ .button:hover {
+  background-color: rgb(129, 165, 97);
+  border-color: rgb(80, 98, 64);
+ }
+ .button > strong {
+  font-size: 24px;
+ }
+
+

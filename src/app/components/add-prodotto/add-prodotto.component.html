@@ -1,0 +1,27 @@
+<div class="AddPage">
+
+  <div *ngIf="!submitted" class="FormGroup">
+    <div class="form">
+      <label for="name">Nome:</label>
+      <input type="text" class="input" id="name" required [(ngModel)]="prodotto.name" name="name"/>
+    </div>
+  <div class="form">
+      <label for="description">Descrizione:</label>
+      <input class="input" id="description" [(ngModel)]="prodotto.description" name="description" required/>
+    </div>
+    <div class="form">
+      <label for="price">Prezzo:</label>
+      <input class="input" id="price" required [(ngModel)]="prodotto.price" name="price" type="number" />
+    </div>
+
+    <div class="formfile">
+      <input type="file" (change)="showPreview($event)" class="inputfile" name="immagine">
+      <button (click)="save()" class="button">Aggiungi</button>
+  </div>
+</div>
+  <div *ngIf="submitted" class="nuovo">
+    <h4>Prodotto inserito con successo!</h4>
+    <button class="button" (click)="newProdotto()">Nuovo Prodotto</button>
+  </div>
+
+
